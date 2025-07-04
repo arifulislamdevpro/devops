@@ -1,0 +1,58 @@
+LARAVEL
+
+cd /usr/share/nginx/html/laravelcicd
+sudo apt update
+sudo apt install php-curl
+composer install
+sudo apt install php8.2-curl
+sudo systemctl restart php8.2-fpm
+sudo systemctl restart nginx
+
+cp .env.example .env
+sudo nano .env
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=somoypay_db
+DB_USERNAME=himu1624
+DB_PASSWORD=96557896!!Abcxe
+
+
+php artisan key:generate 
+
+sudo chmod -R 775 storage bootstrap/cache
+
+php artisan migrate
+
+sudo nano /etc/nginx/sites-available/laravelcicd
+
+server {
+    listen 80;
+    server_name your_domain.com;
+
+    root /usr/share/nginx/html/laravelcicd/public;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock; # change to your PHP version
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    error_log  /var/log/nginx/somoypay_error.log;
+    access_log /var/log/nginx/somoypay_access.log;
+}
+
+sudo ln -s /etc/nginx/sites-available/laravelcicd /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx

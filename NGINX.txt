@@ -1,0 +1,11 @@
+NGINX
+======
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install nginx -y
+sudo systemctl status nginx
+sudo systemctl enable nginx
+sudo ufw allow 'Nginx Full'
+sudo ufw status
+
+sudo systemctl reload nginx

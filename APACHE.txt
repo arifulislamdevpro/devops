@@ -1,0 +1,20 @@
+APACHE 
+======
+sudo apt update
+sudo apt install apache2 -y
+sudo systemctl status apache2
+sudo systemctl start apache2
+sudo systemctl restart apache2
+sudo systemctl enable apache2
+
+👉 To find your server’s IP:
+ip a | grep inet
+
+Or if you're on a cloud VPS:
+curl ifconfig.me
+
+Check Apache Port (Default: 80)
+sudo netstat -tulnp | grep apache2
+sudo apt install net-tools
+
+
