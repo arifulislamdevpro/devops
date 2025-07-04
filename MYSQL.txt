@@ -1,0 +1,33 @@
+MYSQL
+
+sudo apt update
+sudo apt install mysql-server -y
+
+
+sudo systemctl status mysql
+
+sudo systemctl enable mysql
+
+
+sudo mysql_secure_installation
+
+
+sudo mysql -u root -p
+
+CREATE DATABASE laraveldb;
+CREATE USER 'himumsql'@'localhost' IDENTIFIED BY '96587!!Asdcff';
+GRANT ALL PRIVILEGES ON laraveldb.* TO 'himumsql'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+
+
+sudo systemctl stop MySQL
+sudo apt purge mysql-server mysql-client mysql-common -y
+
+sudo apt autoremove -y
+sudo apt autoclean
+sudo rm -rf /etc/mysql /var/lib/MySQL
+mysql --version
+
+

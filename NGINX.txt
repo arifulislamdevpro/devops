@@ -9,3 +9,16 @@ sudo ufw allow 'Nginx Full'
 sudo ufw status
 
 sudo systemctl reload nginx
+
+sudo systemctl stop nginx
+sudo systemctl disable nginx
+sudo apt remove nginx -y
+sudo apt purge nginx nginx-common nginx-full -y
+sudo apt autoremove -y
+sudo apt autoclean
+sudo rm -rf /etc/nginx /var/www/html /usr/share/nginx
+
+
+
+
+

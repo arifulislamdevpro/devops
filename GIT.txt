@@ -4,14 +4,11 @@ sudo apt install git -y
 git --version
 
 git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
+git config --global user.email "arifulislamdevpro@gmail.com"
 
-sudo mkdir -p /var/www/your-project
-sudo chown -R $USER:www-data /var/www/your-project
-sudo chmod -R 775 /var/www/your-project
 
-cd /var/www/your-project
-git clone https://github.com/yourname/your-repo.git .
+
+clear
 
 
 
@@ -19,7 +16,7 @@ git clone https://github.com/yourname/your-repo.git .
 Use SSH keys:
 
 
-ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-keygen -t ed25519 -C "arifulislamdevpro@gmail.com"
 Copy the public key to GitHub:
 
 
@@ -34,7 +31,20 @@ git clone git@github.com:yourname/your-repo.git
 Run:
 
 
-ssh -T git@github.com
-You should see something like:
 
-Hi yourusername! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+File location: Press Enter to use default (C:\Users\YourUserName\.ssh\id_ed25519)
+type %USERPROFILE%\.ssh\id_ed25519.pub
+Copy the output (starts with ssh-ed25519)
+
+Go to: https://github.com/settings/keys
+
+Click “New SSH key”
+
+Paste the key and give it a name like "Windows 11 CMD"
+
+Click Add SSH keyssh -T git@github.com
+Hi your-username! You've successfully authenticated...

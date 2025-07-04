@@ -1,7 +1,6 @@
 COMPOSER
 
 sudo apt update
-sudo apt install php-cli unzip
 cd ~
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 HASH=`curl -sS https://composer.github.io/installer.sig`
@@ -34,3 +33,8 @@ composer --version
 You should see something like:
 
 Composer version 2.2.9 2022-03-15 22:13:37
+
+
+sudo rm /usr/local/bin/composer
+rm ~/composer-setup.php
+composer --version

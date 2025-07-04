@@ -1,12 +1,12 @@
 LARAVEL
 
-cd /usr/share/nginx/html/laravelcicd
-sudo apt update
-sudo apt install php-curl
-composer install
-sudo apt install php8.2-curl
-sudo systemctl restart php8.2-fpm
-sudo systemctl restart nginx
+cd /usr/share/nginx/html/
+sudo chown -R himu:himu /usr/share/nginx/html
+sudo chown -R himu:himu /usr/share/nginx/html/laravelcicd
+cd /usr/share/nginx/html
+git clone git@github.com:arifulislamdevpro/laravelcicd.git
+sudo chmod -R 775 /usr/share/nginx/html/laravelcicd/storage
+sudo chmod -R 775 /usr/share/nginx/html/laravelcicd/bootstrap/cache
 
 cp .env.example .env
 sudo nano .env
@@ -14,25 +14,32 @@ sudo nano .env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=somoypay_db
-DB_USERNAME=himu1624
-DB_PASSWORD=96557896!!Abcxe
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
 
+sudo apt install php8.4-curl -y
+php -m | grep xml
 
-php artisan key:generate 
+composer install
 
-sudo chmod -R 775 storage bootstrap/cache
-
+php artisan key:generate
+sudo apt install php8. 
 php artisan migrate
+
+
 
 sudo nano /etc/nginx/sites-available/laravelcicd
 
 server {
     listen 80;
-    server_name your_domain.com;
+    server_name 192.168.75.131 laravelcicd.com;
 
     root /usr/share/nginx/html/laravelcicd/public;
-    index index.php index.html;
+    index index.php index.html index.htm;
+
+    access_log /var/log/nginx/laravelcicd_access.log;
+    error_log /var/log/nginx/laravelcicd_error.log;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -40,7 +47,7 @@ server {
 
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock; # change to your PHP version
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
@@ -48,11 +55,10 @@ server {
     location ~ /\.ht {
         deny all;
     }
-
-    error_log  /var/log/nginx/somoypay_error.log;
-    access_log /var/log/nginx/somoypay_access.log;
 }
-
 sudo ln -s /etc/nginx/sites-available/laravelcicd /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
+
+C:\Windows\System32\drivers\etc\hosts
+192.168.75.131 laravelcicd.com
