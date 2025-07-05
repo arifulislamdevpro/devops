@@ -9,3 +9,4 @@ sudo ufw allow 'Nginx Full'
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 sudo ufw reload
+sudo ufw allow 8000/tcp

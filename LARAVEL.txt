@@ -26,7 +26,7 @@ composer install
 php artisan key:generate
 sudo apt install php8. 
 php artisan migrate
-
+php artisan serve --host=0.0.0.0 --port=8000
 
 
 sudo nano /etc/nginx/sites-available/laravelcicd

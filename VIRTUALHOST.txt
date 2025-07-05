@@ -1,0 +1,24 @@
+VIRTUALHOST
+===========
+
+/usr/share/nginx/html/ngn1.mrasel.info
+
+
+Creating Virtual host on NGINX
+
+Step 1: Create a folder on /usr/share/nginx/html with your domain name(like test1.mrasel.info)
+step 2:  create a file index.html or any of your code
+step3:  Create a file inside /etc/nginx/conf.d/test1.mrasel.info.conf
+Step 4: Give restart command for nginx service
+
+
+server {
+    listen 80;
+    server_name subdomain2.example.com;
+
+    root /usr/share/nginx/html/ngn1.mrasel.info;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
